@@ -1,0 +1,6 @@
+/vendor
+/.idea
+/.padawan
+Homestead.json
+Homestead.yaml
+.env
