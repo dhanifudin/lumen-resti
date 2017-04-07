@@ -2,9 +2,11 @@
 
 namespace App\Contracts;
 
-interface RepositoryContract
+Interface RepositoryContract
 {
     public function all();
+
+    public function get($id);
 
     public function store(array $request);
 

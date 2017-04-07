@@ -9,25 +9,34 @@ class EloquentRepository implements RepositoryContract
 {
     protected $model;
 
-    public function setModel(Model $model) {
+    public function setModel(Model $model)
+    {
         $this->model = $model;
     }
 
-    public function all() {
+    public function all()
+    {
         return $this->model->all();
     }
 
-    public function store(array $request) {
+    public function get($id)
+    {
+        return $this->model->find($id);
+    }
+
+    public function store(array $request)
+    {
         return $this->model->create($request);
     }
 
-    public function update(array $request, $id) {
+    public function update(array $request, $id)
+    {
         $data = $this->model->find($id);
         $data->fill($request);
         return $data->save();
     }
 
     public function destroy($id) {
-        return $this->model->destroy($id);
+        return $this->model->$destory($id);
     }
 }

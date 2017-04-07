@@ -1,8 +1,17 @@
 <?php
 
 return [
-    'models' => [
-        // declare another route and model here
-        'users' => 'App\User'
+    'resources' => [
+        'users' => [
+            'model' => 'App\User',
+            'repository' => 'App\Repositories\UserRepository',
+            'controller' => 'App\Http\Controllers\UserController',
+            'routes' => [
+                'custom' => [
+                    'method' => 'GET',
+                    'action' => 'sayHello',
+                ]
+            ]
+        ]
     ]
 ];

@@ -10,29 +10,41 @@ class RestiController extends BaseController
 {
     protected $repository;
 
-    public function setRepository(Repository $repository) {
+    public function setRepository(Repository $repository)
+    {
         $this->repository = $repository;
     }
 
-    public function all() {
+    public function all()
+    {
         $response = $this->repository->all();
 
         return response()->json($response);
     }
 
-    public function store(Request $request) {
+    public function get($id)
+    {
+        $response = $this->repository->get($id);
+
+        return response()->json($response);
+    }
+
+    public function store(Request $request)
+    {
         $response = $this->repository->store($request->all());
 
         return response()->json($response);
     }
 
-    public function update(Request $request, $id) {
-        $response = $this->repository->update($request->all(), $id);
+    public function update(Request $request, $id)
+    {
+        $response = $this->repository->update($request, $id);
 
         return response()->json($response);
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $response = $this->repository->destroy($id);
 
         return response()->json($response);
